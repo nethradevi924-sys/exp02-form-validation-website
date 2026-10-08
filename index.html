@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101b3f">
+  <meta name="description" content="A responsive registration form demonstrating client-side form validation.">
+  <title>Create Your Account | Form Validation</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="site-header" aria-label="Page introduction">
+      <a class="brand" href="#" aria-label="Form Validation home">
+        <span class="brand-mark" aria-hidden="true">F</span>
+        <span>Form<span class="brand-light">Lab</span></span>
+      </a>
+      <span class="header-note"><span class="status-dot" aria-hidden="true"></span> Client-side validation demo</span>
+    </header>
+
+    <section class="registration-card" aria-labelledby="form-title">
+      <div class="card-accent" aria-hidden="true"></div>
+      <div class="form-intro">
+        <div class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> YOUR NEXT CHAPTER STARTS HERE</div>
+        <h1 id="form-title">Create Your Account</h1>
+        <p class="subtitle">Register your details to get started</p>
+        <p class="required-note"><span aria-hidden="true">*</span> Required fields</p>
+      </div>
+
+      <form id="registration-form" novalidate>
+        <div class="form-grid">
+          <div class="field field-full">
+            <label for="full-name">Full Name <span class="required" aria-hidden="true">*</span></label>
+            <div class="input-wrap">
+              <span class="field-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c.4-3.4 3.2-5.5 7-5.5s6.6 2.1 7 5.5"></path></svg>
+              </span>
+              <input id="full-name" name="fullName" type="text" placeholder="e.g. Alex Morgan" autocomplete="name" aria-describedby="full-name-error" required>
+            </div>
+            <small class="field-error" id="full-name-error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address <span class="required" aria-hidden="true">*</span></label>
+            <div class="input-wrap">
+              <span class="field-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2"></rect><path d="m4.5 7 7.5 6 7.5-6"></path></svg>
+              </span>
+              <input id="email" name="email" type="email" placeholder="student@example.com" autocomplete="email" aria-describedby="email-error" required>
+            </div>
+            <small class="field-error" id="email-error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone Number <span class="required" aria-hidden="true">*</span></label>
+            <div class="input-wrap">
+              <span class="field-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 3.5h10a1.5 1.5 0 0 1 1.5 1.5v14a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5Z"></path><path d="M10 17.5h4"></path></svg>
+              </span>
+              <input id="phone" name="phone" type="tel" placeholder="10-digit phone number" autocomplete="tel" inputmode="numeric" aria-describedby="phone-hint phone-error" required>
+            </div>
+            <small class="field-hint" id="phone-hint">Enter 10 digits; other characters are removed.</small>
+            <small class="field-error" id="phone-error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="date-of-birth">Date of Birth <span class="required" aria-hidden="true">*</span></label>
+            <div class="input-wrap">
+              <span class="field-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="15" rx="2"></rect><path d="M8 3.5v4M16 3.5v4M4 10h16"></path></svg>
+              </span>
+              <input id="date-of-birth" name="dateOfBirth" type="date" autocomplete="bday" aria-describedby="date-of-birth-error" required>
+            </div>
+            <small class="field-error" id="date-of-birth-error" aria-live="polite"></small>
+          </div>
+
+          <fieldset class="field gender-field">
+            <legend>Gender <span class="required" aria-hidden="true">*</span></legend>
+            <div class="gender-options" role="radiogroup" aria-describedby="gender-error">
+              <label class="radio-option"><input type="radio" name="gender" value="Female" required><span>Female</span></label>
+              <label class="radio-option"><input type="radio" name="gender" value="Male"><span>Male</span></label>
+              <label class="radio-option"><input type="radio" name="gender" value="Non-binary"><span>Non-binary</span></label>
+              <label class="radio-option"><input type="radio" name="gender" value="Prefer not to say"><span>Prefer not to say</span></label>
+            </div>
+            <small class="field-error" id="gender-error" aria-live="polite"></small>
+          </fieldset>
+
+          <div class="field field-full">
+            <label for="address">Address <span class="required" aria-hidden="true">*</span></label>
+            <div class="input-wrap textarea-wrap">
+              <span class="field-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+              </span>
+              <textarea id="address" name="address" rows="2" placeholder="Street address, apartment or unit" autocomplete="street-address" aria-describedby="address-error" required></textarea>
+            </div>
+            <small class="field-error" id="address-error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="city">City <span class="required" aria-hidden="true">*</span></label>
+            <div class="input-wrap">
+              <span class="field-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 20V9l5 3V8l5 3V5h6v15H4Z"></path><path d="M8 16h1M13 16h1M17 9h1M17 13h1M17 17h1"></path></svg>
+              </span>
+              <input id="city" name="city" type="text" placeholder="Your city" autocomplete="address-level2" aria-describedby="city-error" required>
+            </div>
+            <small class="field-error" id="city-error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="state">State <span class="required" aria-hidden="true">*</span></label>
+            <div class="input-wrap">
+              <span class="field-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"></path><path d="m4.5 7.8 7.5 4.4 7.5-4.4M12 12.2V21"></path></svg>
+              </span>
+              <input id="state" name="state" type="text" placeholder="Your state" autocomplete="address-level1" aria-describedby="state-error" required>
+            </div>
+            <small class="field-error" id="state-error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="pin-code">PIN Code <span class="required" aria-hidden="true">*</span></label>
+            <div class="input-wrap">
+              <span class="field-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"></path><circle cx="12" cy="9" r="2.3"></circle></svg>
+              </span>
+              <input id="pin-code" name="pinCode" type="text" placeholder="6-digit PIN code" autocomplete="postal-code" inputmode="numeric" aria-describedby="pin-code-hint pin-code-error" required>
+            </div>
+            <small class="field-hint" id="pin-code-hint">Enter 6 digits; other characters are removed.</small>
+            <small class="field-error" id="pin-code-error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="password">Password <span class="required" aria-hidden="true">*</span></label>
+            <div class="input-wrap">
+              <span class="field-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"></path></svg>
+              </span>
+              <input id="password" name="password" type="password" placeholder="Create a strong password" autocomplete="new-password" aria-describedby="password-hint password-strength password-error" required>
+            </div>
+            <small class="field-hint" id="password-hint">At least 8 characters with upper, lower, number and symbol.</small>
+            <div class="strength-row" id="password-strength" aria-live="polite">
+              <span class="strength-label">Password strength</span>
+              <span class="strength-meter" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="strength-value">Not set</span>
+            </div>
+            <small class="field-error" id="password-error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="confirm-password">Confirm Password <span class="required" aria-hidden="true">*</span></label>
+            <div class="input-wrap">
+              <span class="field-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3M9 15l2 2 4-4"></path></svg>
+              </span>
+              <input id="confirm-password" name="confirmPassword" type="password" placeholder="Enter your password again" autocomplete="new-password" aria-describedby="confirm-password-error" required>
+            </div>
+            <small class="field-error" id="confirm-password-error" aria-live="polite"></small>
+          </div>
+        </div>
+
+        <p class="privacy-note"><span aria-hidden="true">◆</span> Your details stay in this browser and are not sent anywhere.</p>
+        <button class="submit-button" type="submit">
+          <span>Create Account</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </button>
+        <p class="form-footer">A better way to get started.</p>
+      </form>
+
+      <section id="success-section" class="success-section" aria-labelledby="success-title" tabindex="-1" hidden>
+        <div class="success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7"></path></svg>
+        </div>
+        <p class="eyebrow success-eyebrow">YOU'RE ALL SET</p>
+        <h2 id="success-title">Registration Successful!</h2>
+        <p class="success-copy">Your details have been validated. Here is your registration summary.</p>
+        <div class="summary-card">
+          <div class="summary-heading">
+            <div>
+              <span class="summary-kicker">ACCOUNT DETAILS</span>
+              <h3>Registration Summary</h3>
+            </div>
+            <span class="verified-badge"><span aria-hidden="true">✓</span> Verified</span>
+          </div>
+          <dl id="registration-summary" class="summary-list"></dl>
+        </div>
+        <button id="register-another" class="submit-button secondary-button" type="button">
+          <span>Register Another Account</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5M6.1 9a7 7 0 0 1 11.4-2L20 12M4 12l2.5 5a7 7 0 0 0 11.4-2"></path></svg>
+        </button>
+        <p class="form-footer">A better way to get started.</p>
+      </section>
+    </section>
+
+    <footer class="page-footer">
+      <span>EXPERIMENT 02</span>
+      <span>HTML5 <i aria-hidden="true"></i> CSS3 <i aria-hidden="true"></i> VANILLA JAVASCRIPT</span>
+    </footer>
+  </main>
+</body>
+</html>
